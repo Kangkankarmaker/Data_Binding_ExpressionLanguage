@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Expression Language</string>
+
+
+    <string name="students_info">%1$s is %2$d years old</string>
+</resources>

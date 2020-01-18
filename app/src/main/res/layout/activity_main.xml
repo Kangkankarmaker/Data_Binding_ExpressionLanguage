@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <data>
+
+        <import type="java.util.Map" />
+        <import type="java.util.List" />
+        <import type="kangkan.developer.expressionlanguage.MainActivity.student" />
+
+        <variable
+            name="aStudent"
+            type="kangkan.developer.expressionlanguage.MainActivity.student" />
+
+        <variable
+            name="handler"
+            type="kangkan.developer.expressionlanguage.MainActivity.EventHandler" />
+
+        <variable
+            name="handler2"
+            type="kangkan.developer.expressionlanguage.MainActivity.EventHandler2" />
+
+        <variable
+            name="students"
+            type="List&lt;student&gt;" />
+
+        <variable
+            name="nameVsAge"
+            type="Map&lt;String,Integer&gt;" />
+
+        <variable
+            name="showstar"
+            type="boolean" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <!--  <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{aStudent.name==null ? `No Name` : aStudent.age}"
+            />-->
+        <!--<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{aStudent.name ?? `No Name` }"
+            />-->
+        <!-- <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@{String.valueOf(aStudent.age)}"
+          />-->
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{students[0].name }"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(nameVsAge[students[0].name])}"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/students_info(students[0].name,students[0].age)}"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@{@drawable/ic_blur_off_black_24dp}"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@{showstar ? @drawable/ic_star_black_24dp : @drawable/ic_blur_off_black_24dp }"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="click"
+            android:onClick="@{handler.handleClick}"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="click"
+            android:onClick="@{(view)->handler.handleClick(view)}"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Name"
+            android:onClick="@{()->handler2.handleClick2(aStudent.name)}"/>
+
+    </LinearLayout>
+
+
+
+</layout>
